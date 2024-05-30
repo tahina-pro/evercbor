@@ -5,7 +5,9 @@ endif
 include $(EVERCBOR_SRC_PATH)/karamel.Makefile
 
 ifeq (,$(EVERPARSE_HOME))
-  $(error "EVERPARSE_HOME must be defined and set to the root directory of the EverParse repository")
+#  $(error "EVERPARSE_HOME must be defined and set to the root directory of the EverParse repository")
+  # assuming Everest layout
+  EVERPARSE_HOME := $(realpath $(EVERCBOR_SRC_PATH)/../../everparse)
 endif
 
 ALREADY_CACHED := LowParse,$(ALREADY_CACHED)

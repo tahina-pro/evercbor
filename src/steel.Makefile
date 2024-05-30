@@ -6,7 +6,9 @@ ifeq (,$(STEEL_LIB))
   ifeq (,$(STEEL_HOME))
     STEEL_LIB := $(shell ocamlfind query steel)
     ifeq (,$(STEEL_LIB))
-      $(error "Steel should be installed and its lib/ subdirectory should be in ocamlpath; or STEEL_HOME should be defined in the enclosing Makefile as the prefix directory where Steel was installed, or the root directory of its source repository")
+#      $(error "Steel should be installed and its lib/ subdirectory should be in ocamlpath; or STEEL_HOME should be defined in the enclosing Makefile as the prefix directory where Steel was installed, or the root directory of its source repository")
+      # assuming Everest layout
+      STEEL_LIB := $(realpath $(EVERCBOR_SRC_PATH)/../../steel/lib/steel)
     endif
     STEEL_HOME := $(realpath $(STEEL_LIB)/../..)
   else

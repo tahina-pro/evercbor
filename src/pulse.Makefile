@@ -6,7 +6,9 @@ ifeq (,$(PULSE_LIB))
   ifeq (,$(PULSE_HOME))
     PULSE_LIB := $(shell ocamlfind query pulse)
     ifeq (,$(PULSE_LIB))
-      $(error "Pulse should be installed and its lib/ subdirectory should be in ocamlpath; or PULSE_HOME should be defined in the enclosing Makefile as the prefix directory where Pulse was installed, or the root directory of its source repository")
+#      $(error "Pulse should be installed and its lib/ subdirectory should be in ocamlpath; or PULSE_HOME should be defined in the enclosing Makefile as the prefix directory where Pulse was installed, or the root directory of its source repository")
+      # assuming Everest layout
+      PULSE_LIB := $(realpath $(EVERCBOR_SRC_PATH)/../../pulse/lib/pulse)
     endif
     PULSE_HOME := $(realpath $(PULSE_LIB)/../..)
   else

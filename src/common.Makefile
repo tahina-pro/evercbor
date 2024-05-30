@@ -8,7 +8,9 @@ ifeq (,$(FSTAR_HOME))
   ifeq ($(.SHELLSTATUS),0)
     FSTAR_HOME := $(realpath $(dir $(_check_fstar))/..)
   else
-    $(error "FSTAR_HOME is not defined and I cannot find fstar.exe in $(PATH). Please make sure fstar.exe is properly installed and in your PATH or FSTAR_HOME points to its prefix directory or the F* source repository.")
+#    $(error "FSTAR_HOME is not defined and I cannot find fstar.exe in $(PATH). Please make sure fstar.exe is properly installed and in your PATH or FSTAR_HOME points to its prefix directory or the F* source repository.")
+    # assuming Everest layout
+    FSTAR_HOME := $(realpath $(EVERCBOR_SRC_PATH)/../../FStar)
   endif
 endif
 ifeq ($(OS),Windows_NT)
