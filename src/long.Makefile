@@ -1,4 +1,4 @@
-all: cbor/pulse/test.do cddl.do
+all: cbor/pulse/test.do cose.do
 
 # Test if the two generated CBOR.h have the same number of lines. I
 # cannot diff between the two, because Karamel outputs declarations in
@@ -27,6 +27,8 @@ cbor/pulse.do: cbor.do
 cbor/pulse/test.do: cbor/pulse.do cbor/steel.do
 
 cddl.do: cbor/pulse.do
+
+cose.do: cddl.do
 
 %.do:
 	+$(MAKE) -C $(basename $@)
