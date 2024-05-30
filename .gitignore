@@ -1,0 +1,6 @@
+*.checked
+*~
+*.depend
+*.rsp
+*.krml
+*.o
