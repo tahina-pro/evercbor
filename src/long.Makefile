@@ -1,4 +1,4 @@
-all: cbor-steel
+all: cbor-steel cbor/pulse.do
 
 # Test if the two generated CBOR.h have the same number of lines. I
 # cannot diff between the two, because Karamel outputs declarations in
@@ -21,6 +21,8 @@ lowparse/steel.do: lowparse.do
 cbor/steel/impl.do: cbor/everparse.do cbor/steel.do lowparse-steel-array
 
 cbor/everparse.do: cbor.do lowparse.do
+
+cbor/pulse.do: cbor.do
 
 %.do:
 	+$(MAKE) -C $(basename $@)
