@@ -24,7 +24,7 @@ cbor/everparse.do: cbor.do lowparse.do
 
 cbor/pulse.do: cbor.do
 
-cbor/pulse/test.do: cbor/pulse.do cbor/steel.do
+cbor/pulse/test.do: cbor/pulse.do cbor-steel
 
 cddl.do: cbor/pulse.do
 
