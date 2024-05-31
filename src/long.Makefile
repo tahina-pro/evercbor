@@ -24,7 +24,15 @@ cbor/everparse.do: cbor.do lowparse.do
 
 cbor/pulse.do: cbor.do
 
-cbor/pulse/test.do: cbor/pulse.do cbor-steel
+EVERCBOR_LIB_PATH = $(realpath ..)/lib/evercbor
+
+$(EVERCBOR_LIB_PATH):
+	mkdir -p $@
+
+$(EVERCBOR_LIB_PATH)/evercbor.a: $(EVERCBOR_LIB_PATH) cbor/pulse.do cbor-steel
+	ar cr $@ cbor/steel/impl/out/CBOR.o cbor/pulse/_output/CBOR_Pulse.o
+
+cbor/pulse/test.do: $(EVERCBOR_LIB_PATH)/evercbor.a
 
 cddl.do: cbor/pulse.do
 
