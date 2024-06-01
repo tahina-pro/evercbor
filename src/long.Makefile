@@ -32,7 +32,7 @@ $(EVERCBOR_LIB_PATH):
 	mkdir -p $@
 
 $(EVERCBOR_LIB_PATH)/evercbor.a: $(EVERCBOR_LIB_PATH) cbor/pulse/impl.do cbor-steel
-	ar cr $@ cbor/steel/impl/out/CBOR.o cbor/pulse/impl/_output/CBOR_Pulse.o
+	ar cr $@ cbor/steel/impl/out/CBOR.o cbor/pulse/impl/out/CBOR_Pulse.o
 
 EVERCBOR_INCLUDE_PATH = $(realpath ..)/include/evercbor
 
